@@ -1,0 +1,10 @@
+apply plugin: 'scala'
+dependencies {
+  compile 'com.xebialabs.deployit:udm-plugin-api'
+  compile 'com.xebialabs.xl-platform:xl-webhooks-common'
+  compile project(":modules:xlr-webhooks-module")
+
+  testCompile "junit:junit"
+  testCompile "org.assertj:assertj-core"
+  testCompile project(':core:xlr-server-test-utils')
+}

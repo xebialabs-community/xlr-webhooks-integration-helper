@@ -1,0 +1,26 @@
+<synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.xebialabs.com/deployit/synthetic"
+           xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
+
+    <type type="test.simple" extends="xlrelease.SyntheticEvent">
+        <property name="_id" kind="string"/>
+        <property name="_type" kind="integer"/>
+        <property name="c" kind="list_of_string"/>
+        <property name="d" kind="ci" referenced-type="test.simple0" nested="true"/>
+    </type>
+    <type type="test.simple0" extends="udm.BaseConfigurationItem">
+        <property name="three" kind="list_of_string"/>
+        <property name="two" kind="integer"/>
+        <property name="six" kind="date"/>
+        <property name="five" kind="ci" referenced-type="test.simple1" nested="true"/>
+        <property name="_name" kind="list_of_ci" referenced-type="test.simple1" as-containment="true"/>
+        <property name="one" kind="string"/>
+    </type>
+
+    <type type="test.simple1" extends="udm.BaseConfigurationItem">
+        <property name="x" kind="integer"/>
+        <property name="y" kind="integer"/>
+    </type>
+
+</synthetic>
+
