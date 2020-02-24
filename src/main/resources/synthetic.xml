@@ -1,0 +1,10 @@
+<synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.xebialabs.com/deployit/synthetic"
+           xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
+
+    <type-modification type="xlrelease.JsonEventProcessorGeneratorConfig">
+        <property name="outputEventType" default="xlrelease.WebhookSupportGeneratedEvent" hidden="true"/>
+    </type-modification>
+
+</synthetic>
+

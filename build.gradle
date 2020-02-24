@@ -1,0 +1,28 @@
+plugins {
+  id 'org.springframework.boot' version '2.2.4.RELEASE'
+}
+
+apply plugin: 'java'
+apply plugin: 'scala'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.xebialabs.xlrelease.webhooks'
+version = '0.9.0-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+  mavenCentral()
+  maven {
+    url "https://dist.xebialabs.com/public/maven2"
+  }
+}
+
+dependencies {
+  implementation 'org.springframework.boot:spring-boot-starter-web'
+  implementation 'com.xebialabs.deployit:udm-plugin-api:2019.3.4'
+  implementation 'io.spray:spray-json_2.12:1.3.3'
+
+  testCompile 'junit:junit:4.13'
+  testCompile 'org.assertj:assertj-core:3.15.0'
+  testCompile 'org.scalatest:scalatest_2.12:3.0.8'
+}
