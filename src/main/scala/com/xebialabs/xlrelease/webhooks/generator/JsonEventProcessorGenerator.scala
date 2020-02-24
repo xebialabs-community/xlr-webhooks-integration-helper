@@ -3,7 +3,6 @@ package com.xebialabs.xlrelease.webhooks.generator
 import java.time.Instant
 
 import com.xebialabs.deployit.plugin.api.reflect.PropertyKind._
-import com.xebialabs.xlplatform.webhooks.domain.HttpRequestEvent
 import com.xebialabs.xlrelease.webhooks.generator.domain._
 import com.xebialabs.xlrelease.webhooks.generator.types.JsonEventProcessorGeneratorConfig
 import grizzled.slf4j.Logging
@@ -20,9 +19,9 @@ object JsonEventProcessorGenerator extends Logging {
 
   type CFG = JsonEventProcessorGeneratorConfig
 
-  def generate(config: JsonEventProcessorGeneratorConfig, event: HttpRequestEvent): Try[State] = {
+  def generate(config: JsonEventProcessorGeneratorConfig, payload: String): Try[State] = {
     implicit val cfg: CFG = config
-    event.content.parseJson match {
+    payload.parseJson match {
       case obj: JsObject =>
         Success(
           fillProperties(TypeDef(cfg.typeName, Map.empty))
@@ -83,7 +82,7 @@ object JsonEventProcessorGenerator extends Logging {
 
             val (newState, newTypeDef) = pd.map {
               case (newState, pd) =>
-                logger.debug(s"updating state for ${t.name} with ${pd}")
+                logger.debug(s"updating state for ${t.name} with $pd")
                 newState -> t.copy(properties = t.properties + (name.name -> pd))
             }.getOrElse {
               logger.warn(s"Ignoring property '${name.key}': $value")
