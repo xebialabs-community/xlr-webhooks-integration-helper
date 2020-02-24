@@ -3,23 +3,19 @@ package com.xebialabs.xlrelease.webhooks.generator
 import com.xebialabs.xlrelease.webhooks.generator.types.JsonEventProcessorGeneratorConfig
 import grizzled.slf4j.Logging
 import org.junit.runner.RunWith
-import org.scalatest.{BeforeAndAfterAll, BeforeAndAfterEach, FunSpecLike, Matchers}
+import org.scalatest.{FunSpecLike, Matchers}
 import org.scalatestplus.junit.JUnitRunner
-import org.scalatestplus.mockito.MockitoSugar
 
 import scala.io.Source
 
 @RunWith(classOf[JUnitRunner])
 class JsonEventProcessorGeneratorTest extends FunSpecLike
   with Matchers
-  with BeforeAndAfterAll
-  with BeforeAndAfterEach
-  with MockitoSugar
   with Logging {
 
   describe("JsonEventProcessorGenerator") {
     it("should do its job") {
-      def payload = Source.fromResource("simple.json").mkString
+      def payload: String = Source.fromResource("simple.json").mkString
 
       val cfg = new JsonEventProcessorGeneratorConfig
       cfg.typePrefix = "test"

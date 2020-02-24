@@ -5,13 +5,19 @@ global CI
 global input
 global config
 
+def parseDate(date):
+    if (isinstance(date, int)):
+        return time.strftime('%Y-%m-%dT%H:%M:%SZ', time.localtime(date))
+    else:
+        return date
+
 
 def parse_simple0(data):
     if data:
         return CI("test.simple0", {
             'three': data['three'] if 'three' in data else None,
             'two': data['two'] if 'two' in data else None,
-            'six': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.localtime(data['six'] if 'six' in data else None)) if(isinstance(data['six'] if 'six' in data else None, (int, float))) else data['six'] if 'six' in data else None,
+            'six': parseDate(data['six'] if 'six' in data else None),
             'five': parse_simple1(data['five'] if 'five' in data else None),
             '_name': map(lambda x: parse_simple1(x), data['name'] if 'name' in data else None),
             'one': data['one'] if 'one' in data else None
