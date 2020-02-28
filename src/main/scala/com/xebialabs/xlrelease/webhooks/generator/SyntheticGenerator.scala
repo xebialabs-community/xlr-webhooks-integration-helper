@@ -37,7 +37,7 @@ object SyntheticGenerator {
                   (typeDef: TypeDef)
                   (implicit cfg: CFG): String = {
     import typeDef._
-    val superType = if (nested) "udm.BaseConfigurationItem" else "xlrelease.SyntheticEvent"
+    val superType = if (nested) "udm.BaseConfigurationItem" else "events.Event"
     s"""|    <type type="${cfg.typePrefix}.$name" extends="$superType">
         |${properties.values.map(generateProperty).mkString("\n")}
         |    </type>""".stripMargin
