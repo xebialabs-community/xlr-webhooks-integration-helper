@@ -16,7 +16,7 @@ object ParserGenerator {
         |
         |def parseDate(date):
         |    if (isinstance(date, int)):
-        |        return time.strftime('%Y-%m-%dT%H:%M:%SZ', time.localtime(date))
+        |        return time.strftime('%Y-%m-%dT%H:%M:%S', time.localtime(date))
         |    else:
         |        return date
         |
