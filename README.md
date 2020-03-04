@@ -1,8 +1,6 @@
-# XL Release webhook event source support generator
+## Webhook event source generator
 
-## Utility tool for generating XL Release webhook event source definitions
-
-This app can generate the content of files necessary to define a webhook event type source for XL Release, given a JSON payload example of a request. These definitions are necessary to implement integrations with external systems (i.e. Jira or GitHub webhooks).
+The XL Release webhook event source support generator is a tool that can generate the content of files necessary to define a webhook event source for XL Release, given a JSON payload example of a request. These definitions are necessary to implement integrations with external systems (i.e. Jira or GitHub webhooks).
 
 The tool performs the bulk of the work necessary to describe the entities sent by an external system (in the JSON payload) and model them in XL Release as configuration items. For example, if you want to add support for the 'Pull Request' webhook event that will be sent to XL Release when a pull request is opened on GitHub, you can use this tool to generate the content of the two files necessary (described further in the document) by feeding it an example of the JSON payload object that GitHub will send with the webhook request.
 
